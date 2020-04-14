@@ -2,12 +2,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class calculatorTest {
-
+class personTest {
 
     @Test
-    void getBalance() {
+    void getDetails() {
         readJSON test = new readJSON();
         test.main();
     }
+
+
 }

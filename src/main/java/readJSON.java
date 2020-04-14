@@ -35,15 +35,15 @@ public class readJSON {
 
         private void parsePersonObject(JSONObject person)
         {
-//            JSONObject personObject = (JSONObject) person.get("");
+            JSONArray personObject = (JSONArray) person.get("stock_trades");
 
-            String firstName = (String) person.get("first_name");
+            String firstName = (String) person.get("type");
             System.out.println(firstName);
 
-            String lastName = (String) person.get("last_name");
+            String lastName = (String) person.get("stock_symbol");
             System.out.println(lastName);
 
-            String website = (String) person.get("ssn");
+            String website = (String) person.get("price_per_share");
             System.out.println(website);
         }
     }
