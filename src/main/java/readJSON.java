@@ -2,6 +2,9 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -11,7 +14,7 @@ import org.json.simple.parser.ParseException;
 public class readJSON {
 
         @SuppressWarnings("unchecked")
-        public void main()
+        public List<Person> jsonReader()
         {
             JSONParser jsonParser = new JSONParser();
 
@@ -22,7 +25,9 @@ public class readJSON {
                 JSONArray personList = (JSONArray) obj;
                 System.out.println(personList);
 
-                personList.forEach( emp -> parsePersonObject( (JSONObject) emp ) );
+                List<Person> people = new ArrayList<Person>();
+                personList.forEach( emp -> people.add(new Person((JSONObject) emp) ));
+                return people;
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -31,6 +36,7 @@ public class readJSON {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            return Collections.emptyList();
         }
 
         private void parsePersonObject(JSONObject person)
